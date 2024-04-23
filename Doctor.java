@@ -1,33 +1,29 @@
-class Doctor extends HospitalStaff {
+class Doctor implements Person {
+    private String name;
+    private int age;
     private String specialization;
+    // Additional fields like qualifications, work schedule, availability can be added
 
-    public Doctor(String name, int id, String specialization) {
-        super(name, id);
+    public Doctor(String name, int age, String specialization) {
+        this.name = name;
+        this.age = age;
         this.specialization = specialization;
     }
 
-    // Getter and setter for specialization
-    public String getSpecialization() {
-        return specialization;
+    @Override
+    public String getName() {
+        return name;
     }
 
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+    @Override
+    public int getAge() {
+        return age;
     }
 
-    // Polymorphism: Override toString method to print doctor details
+    // Getters and setters for additional fields can be added as needed
+
     @Override
     public String toString() {
-        return "Doctor{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", specialization='" + specialization + '\'' +
-                '}';
-    }
-
-    // Method to view doctor details
-    public void viewDoctor() {
-        System.out.println("Doctor Details:");
-        System.out.println(this);
+        return "Doctor: " + name + ", Age: " + age + ", Specialization: " + specialization;
     }
 }

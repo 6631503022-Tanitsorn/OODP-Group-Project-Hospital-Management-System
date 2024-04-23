@@ -1,52 +1,30 @@
-import java.io.*;
-
-class Patient implements SerializableEntity {
+public class Patient implements Person {
     private String name;
-    private int id;
+    private int age;
+    private String patientID;
 
-    public Patient(String name, int id) {
+    public Patient(String name, int age, String patientID) {
         this.name = name;
-        this.id = id;
+        this.age = age;
+        this.patientID = patientID;
     }
 
-    // Getters and setters
+    public String getPatientID() {
+        return patientID;
+    }
+
+    @Override
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    // Serialization methods
     @Override
-    public void writeToFile(String filename) throws IOException {
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(filename))) {
-            outputStream.writeObject(this);
-        }
+    public int getAge() {
+        return age;
     }
 
     @Override
-    public void readFromFile(String filename) throws IOException, ClassNotFoundException {
-        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(filename))) {
-            Patient patient = (Patient) inputStream.readObject();
-            this.name = patient.getName();
-            this.id = patient.getId();
-        }
-    }
-
-    // Method to view patient details
-    public void viewPatient() {
-        System.out.println("Patient Details:");
-        System.out.println("Name: " + name);
-        System.out.println("ID: " + id);
+    public String toString() {
+        return "Patient: " + name + ", Age: " + age + ", ID: " + patientID;
     }
 }
