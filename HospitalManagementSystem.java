@@ -7,8 +7,10 @@ public class HospitalManagementSystem {
     private static ArrayList<Patient> patients = new ArrayList<>();
     private static ArrayList<Doctor> doctors = new ArrayList<>();
     private static ArrayList<Appointment> appointments = new ArrayList<>();
+    
 
     public static void main(String[] args) {
+
         loadDataFromFile(); // Load data from file
         Scanner scanner = new Scanner(System.in);
 
@@ -55,7 +57,7 @@ public class HospitalManagementSystem {
             }
         } catch (InputMismatchException e) {
             System.out.println("Invalid choice! Please enter a valid number from 1 to 7.");
-            scanner.nextLine(); // Consume newline to clear the invalid input
+            scanner.nextLine(); // Skip to next line to clear invalid input
 
         }
         }
@@ -90,12 +92,13 @@ public class HospitalManagementSystem {
         String name = scanner.nextLine();
         System.out.print("Age: ");
         int age = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
         System.out.print("Specialization: ");
         String specialization = scanner.nextLine();
 
         Doctor doctor = new Doctor(name, age, specialization);
         doctors.add(doctor);
+        
         System.out.println("Doctor added successfully!");
     }
 
@@ -104,10 +107,17 @@ public class HospitalManagementSystem {
         for (Doctor doctor : doctors) {
             System.out.println(doctor);
         }
+        
     }
 
     private static void makeAppointment(Scanner scanner) {
         System.out.println("\nMake Appointment:");
+        
+        if (patients.isEmpty()) {
+            System.out.println("No patients available. Please add patients first.");
+            return;
+        }
+        
         System.out.println("Select Patient:");
         for (int i = 0; i < patients.size(); i++) {
             System.out.println((i + 1) + ". " + patients.get(i));
@@ -115,8 +125,17 @@ public class HospitalManagementSystem {
         System.out.print("Enter patient number: ");
         int patientIndex = scanner.nextInt();
         scanner.nextLine(); // Consume newline
+        if (patientIndex < 1 || patientIndex > patients.size()) {
+            System.out.println("Invalid patient number. Please select a valid patient.");
+            return;
+        }
         Patient patient = patients.get(patientIndex - 1);
-
+    
+        if (doctors.isEmpty()) {
+            System.out.println("No doctors available. Please add doctors first.");
+            return;
+        }
+    
         System.out.println("Select Doctor:");
         for (int i = 0; i < doctors.size(); i++) {
             System.out.println((i + 1) + ". " + doctors.get(i));
@@ -124,15 +143,20 @@ public class HospitalManagementSystem {
         System.out.print("Enter doctor number: ");
         int doctorIndex = scanner.nextInt();
         scanner.nextLine(); // Consume newline
+        if (doctorIndex < 1 || doctorIndex > doctors.size()) {
+            System.out.println("Invalid doctor number. Please select a valid doctor.");
+            return;
+        }
         Doctor doctor = doctors.get(doctorIndex - 1);
-
+    
         System.out.print("Enter appointment type: ");
         String appointmentType = scanner.nextLine();
-
+    
         Appointment appointment = new Appointment(patient, doctor, appointmentType);
         appointments.add(appointment);
         System.out.println("Appointment made successfully!");
     }
+    
 
     private static void viewAppointments() {
         System.out.println("\nAppointments in the system:");

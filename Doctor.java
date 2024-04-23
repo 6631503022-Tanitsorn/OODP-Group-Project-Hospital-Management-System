@@ -19,6 +19,7 @@ class Doctor implements Person {
     public int getAge() {
         return age;
     }
+    
 
     // Getters and setters for additional fields can be added as needed
 
