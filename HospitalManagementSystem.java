@@ -3,6 +3,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
+/*
+Hospital Management System
+--------------------------
+This program simulates a simple hospital management system that allows users to add/view patients, doctors, and appointments.
+
+Main classes:
+- HospitalManagementSystem: The main class that runs the program.
+- Patient: Represents a patient.
+- Doctor: Represents a doctor.
+- Appointment: Represents an appointment between a patient and a doctor.
+*/
+
 public class HospitalManagementSystem {
     private static ArrayList<Patient> patients = new ArrayList<>();
     private static ArrayList<Doctor> doctors = new ArrayList<>();
@@ -64,6 +76,7 @@ public class HospitalManagementSystem {
 
     }
 
+    //The Scanner object is used to read input from the user
     private static void addPatient(Scanner scanner) {
         System.out.println("\nEnter patient details:");
         System.out.print("Name: ");
