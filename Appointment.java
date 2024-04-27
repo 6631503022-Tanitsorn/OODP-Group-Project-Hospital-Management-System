@@ -10,7 +10,8 @@ class Appointment {
         this.appointmentType = appointmentType;
     }
 
-
+    /* Override, the ability of a subclass to provide a specific implementation of a method
+    that is already defined in its superclass */
     @Override
     public String toString() {
         return "Appointment - Patient: " + patient.getName() + ", Doctor: " + doctor.getName() + ", Type: " + appointmentType;

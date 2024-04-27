@@ -14,7 +14,7 @@ public class Patient implements Person {
         return patientID;
     }
 
-    /* Note: Override, the ability of a subclass to provide a specific implementation of a method
+    /* Override, the ability of a subclass to provide a specific implementation of a method
     that is already defined in its superclass */
     @Override
     public String getName() {

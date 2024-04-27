@@ -23,7 +23,7 @@ public class HospitalManagementSystem {
 
     public static void main(String[] args) {
 
-        loadDataFromFile(); // Load data from file
+        loadDataFromFile();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -61,7 +61,7 @@ public class HospitalManagementSystem {
                     viewAppointments();
                     break;
                 case 7:
-                    saveDataToFile(); // Save data to file
+                    saveDataToFile();
                     System.out.println("Exiting...");
                     System.exit(0);
                 default:
