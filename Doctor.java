@@ -2,7 +2,6 @@ class Doctor implements Person {
     private String name;
     private int age;
     private String specialization;
-    // Additional fields like qualifications, work schedule, availability can be added
 
     public Doctor(String name, int age, String specialization) {
         this.name = name;
@@ -20,8 +19,6 @@ class Doctor implements Person {
         return age;
     }
     
-
-    // Getters and setters for additional fields can be added as needed
 
     @Override
     public String toString() {

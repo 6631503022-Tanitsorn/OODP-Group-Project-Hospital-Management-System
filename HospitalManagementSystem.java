@@ -27,7 +27,7 @@ public class HospitalManagementSystem {
 
             try {
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -70,7 +70,7 @@ public class HospitalManagementSystem {
         String name = scanner.nextLine();
         System.out.print("Age: ");
         int age = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
         System.out.print("Patient ID: ");
         String patientID = scanner.nextLine();
 
@@ -124,7 +124,7 @@ public class HospitalManagementSystem {
         }
         System.out.print("Enter patient number: ");
         int patientIndex = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
         if (patientIndex < 1 || patientIndex > patients.size()) {
             System.out.println("Invalid patient number. Please select a valid patient.");
             return;
@@ -142,7 +142,7 @@ public class HospitalManagementSystem {
         }
         System.out.print("Enter doctor number: ");
         int doctorIndex = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
         if (doctorIndex < 1 || doctorIndex > doctors.size()) {
             System.out.println("Invalid doctor number. Please select a valid doctor.");
             return;
