@@ -65,7 +65,7 @@ public class HospitalManagementSystem {
                     System.out.println("Exiting...");
                     System.exit(0);
                 default:
-                    System.out.println("\n>>> Invalid choice! Please enter a number from 1 to 7. <<<");
+                    System.out.println("\n>>> Invalid choice! Please enter a valid number from 1 to 7. <<<");
             }
         } catch (InputMismatchException e) {
             System.out.println("\n>>> Invalid choice! Please enter a valid number from 1 to 7. <<<");
@@ -94,7 +94,7 @@ public class HospitalManagementSystem {
 
     private static void viewPatients() {
         if (patients.isEmpty()) {
-            System.out.println("\n>>> There are no patients at the moment, please add patient first. <<<");
+            System.out.println("\n>>> There are no patients at the moment, please add patients first. <<<");
         } else {
             System.out.println("\nPatients in the system:");
             for (Patient patient : patients) {
@@ -121,7 +121,7 @@ public class HospitalManagementSystem {
 
     private static void viewDoctors() {
         if (doctors.isEmpty()) {
-            System.out.println("\n>>> There are no doctors at the moment, please add doctor first. <<<");
+            System.out.println("\n>>> There are no doctors at the moment, please add doctors first. <<<");
         } else {
             System.out.println("\nDoctors in the system:");
             for (Doctor doctor : doctors) {
@@ -196,10 +196,12 @@ public class HospitalManagementSystem {
             patients = (ArrayList<Patient>) inputStream.readObject();
             doctors = (ArrayList<Doctor>) inputStream.readObject();
             appointments = (ArrayList<Appointment>) inputStream.readObject();
-            System.out.println("\n>>> Data loaded successfully! <<<");
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error loading data from file: " + e.getMessage());
-        }
+           System.out.println("\n>>> Data loaded successfully! <<<");
+    } catch (FileNotFoundException e) {
+        System.out.println("Data file not found: " + e.getMessage());
+    } catch (IOException | ClassNotFoundException e) {
+        System.out.println("Error loading data from file: " + e.getMessage());
+    }
     }
 
     private static void saveDataToFile() {
