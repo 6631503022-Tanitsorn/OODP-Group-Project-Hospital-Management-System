@@ -197,8 +197,6 @@ public class HospitalManagementSystem {
             doctors = (ArrayList<Doctor>) inputStream.readObject();
             appointments = (ArrayList<Appointment>) inputStream.readObject();
            System.out.println("\n>>> Data loaded successfully! <<<");
-    } catch (FileNotFoundException e) {
-        System.out.println("Data file not found: " + e.getMessage());
     } catch (IOException | ClassNotFoundException e) {
         System.out.println("Error loading data from file: " + e.getMessage());
     }
