@@ -1,4 +1,4 @@
-public class Patient implements Person {
+class Patient implements Person {
     private String name;
     private int age;
     private String patientID;

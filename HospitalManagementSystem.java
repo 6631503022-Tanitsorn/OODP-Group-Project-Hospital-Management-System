@@ -1,5 +1,4 @@
 import java.io.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -90,7 +89,7 @@ public class HospitalManagementSystem {
 
         Patient patient = new Patient(name, age, patientID);
         patients.add(patient);
-        System.out.println("Patient added successfully!");
+        System.out.println("\n>>> Patient added successfully! <<<");
     }
 
     private static void viewPatients() {
@@ -133,7 +132,7 @@ public class HospitalManagementSystem {
     }
 
     private static void makeAppointment(Scanner scanner) {
-        System.out.println("\nMake Appointment:");
+        System.out.println("\n*** Make Appointment ***");
         
         if (patients.isEmpty()) {
             System.out.println("No patients available. Please add patients first.");
@@ -173,12 +172,9 @@ public class HospitalManagementSystem {
     
         System.out.print("Enter appointment type: ");
         String appointmentType = scanner.nextLine();
-
-        System.out.print("Enter appointment date (YYYY-MM-DD): ");
-        String dateInput = scanner.nextLine();
-        LocalDate appointmentDate = LocalDate.parse(dateInput);
     
-        Appointment appointment = new Appointment(patient, doctor, appointmentType, appointmentDate);
+        Appointment appointment = new Appointment(patient, doctor, appointmentType);
+        
         appointments.add(appointment);
         System.out.println("\n>>> Appointment made successfully! <<<");
     }
