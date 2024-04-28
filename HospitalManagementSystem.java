@@ -1,4 +1,5 @@
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -172,8 +173,12 @@ public class HospitalManagementSystem {
     
         System.out.print("Enter appointment type: ");
         String appointmentType = scanner.nextLine();
+
+        System.out.print("Enter appointment date (YYYY-MM-DD): ");
+        String dateInput = scanner.nextLine();
+        LocalDate appointmentDate = LocalDate.parse(dateInput);
     
-        Appointment appointment = new Appointment(patient, doctor, appointmentType);
+        Appointment appointment = new Appointment(patient, doctor, appointmentType, appointmentDate);
         appointments.add(appointment);
         System.out.println("\n>>> Appointment made successfully! <<<");
     }
@@ -195,7 +200,7 @@ public class HospitalManagementSystem {
             patients = (ArrayList<Patient>) inputStream.readObject();
             doctors = (ArrayList<Doctor>) inputStream.readObject();
             appointments = (ArrayList<Appointment>) inputStream.readObject();
-            System.out.println("Data loaded successfully!");
+            System.out.println("\n>>> Data loaded successfully! <<<");
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Error loading data from file: " + e.getMessage());
         }
@@ -206,9 +211,10 @@ public class HospitalManagementSystem {
             outputStream.writeObject(patients);
             outputStream.writeObject(doctors);
             outputStream.writeObject(appointments);
-            System.out.println("Data saved successfully!");
+            System.out.println("\n>>> Data saved successfully! <<<");
         } catch (IOException e) {
             System.out.println("Error saving data to file: " + e.getMessage());
         }
     }
+
 }
