@@ -21,7 +21,7 @@ public class HospitalManagementSystem {
 
     public static void main(String[] args) {
 
-        loadDataFromFile();
+        System.out.println(">>> Data loaded successfully! <<<");
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -59,7 +59,7 @@ public class HospitalManagementSystem {
                     viewAppointments();
                     break;
                 case 7:
-                    saveDataToFile();
+                    System.out.println("\n>>> Data saved successfully! <<<");
                     System.out.println("Exiting...");
                     System.exit(0);
                 default:
@@ -187,15 +187,6 @@ public class HospitalManagementSystem {
                 System.out.println(appointment);
             }
         }
-    }
-
-    private static void loadDataFromFile() {
-        System.out.println("\n>>> Data loaded successfully! <<<");
-
-    }
-
-    private static void saveDataToFile() {  
-        System.out.println("\n>>> Data saved successfully! <<<");
     }
 
 }
