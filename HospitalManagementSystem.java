@@ -192,25 +192,11 @@ public class HospitalManagementSystem {
     }
 
     private static void loadDataFromFile() {
-        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("data.bin"))) {
-            patients = (ArrayList<Patient>) inputStream.readObject();
-            doctors = (ArrayList<Doctor>) inputStream.readObject();
-            appointments = (ArrayList<Appointment>) inputStream.readObject();
            System.out.println("\n>>> Data loaded successfully! <<<");
-    } catch (IOException | ClassNotFoundException e) {
-        System.out.println("Error loading data from file: " + e.getMessage());
-    }
     }
 
     private static void saveDataToFile() {
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("data.bin"))) {
-            outputStream.writeObject(patients);
-            outputStream.writeObject(doctors);
-            outputStream.writeObject(appointments);
             System.out.println("\n>>> Data saved successfully! <<<");
-        } catch (IOException e) {
-            System.out.println("Error saving data to file: " + e.getMessage());
-        }
     }
 
 }
