@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -19,7 +18,6 @@ public class HospitalManagementSystem {
     private static ArrayList<Patient> patients = new ArrayList<>();
     private static ArrayList<Doctor> doctors = new ArrayList<>();
     private static ArrayList<Appointment> appointments = new ArrayList<>();
-    
 
     public static void main(String[] args) {
 
@@ -71,8 +69,8 @@ public class HospitalManagementSystem {
             System.out.println("\n>>> Invalid choice! Please enter a valid number from 1 to 7. <<<");
             scanner.nextLine(); // Skip to next line to clear invalid input
 
-        }
-        }
+        } 
+        }    
 
     }
 
@@ -192,11 +190,12 @@ public class HospitalManagementSystem {
     }
 
     private static void loadDataFromFile() {
-           System.out.println("\n>>> Data loaded successfully! <<<");
+        System.out.println("\n>>> Data loaded successfully! <<<");
+
     }
 
-    private static void saveDataToFile() {
-            System.out.println("\n>>> Data saved successfully! <<<");
+    private static void saveDataToFile() {  
+        System.out.println("\n>>> Data saved successfully! <<<");
     }
 
 }
