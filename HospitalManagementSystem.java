@@ -65,10 +65,10 @@ public class HospitalManagementSystem {
                     System.out.println("Exiting...");
                     System.exit(0);
                 default:
-                    System.out.println("Invalid choice! Please enter a number from 1 to 7.");
+                    System.out.println("\n>>> Invalid choice! Please enter a number from 1 to 7. <<<");
             }
         } catch (InputMismatchException e) {
-            System.out.println("Invalid choice! Please enter a valid number from 1 to 7.");
+            System.out.println("\n>>> Invalid choice! Please enter a valid number from 1 to 7. <<<");
             scanner.nextLine(); // Skip to next line to clear invalid input
 
         }
@@ -93,9 +93,13 @@ public class HospitalManagementSystem {
     }
 
     private static void viewPatients() {
-        System.out.println("\nPatients in the system:");
-        for (Patient patient : patients) {
-            System.out.println(patient);
+        if (patients.isEmpty()) {
+            System.out.println("\n>>> There are no patients at the moment, please add patient first. <<<");
+        } else {
+            System.out.println("\nPatients in the system:");
+            for (Patient patient : patients) {
+                System.out.println(patient);
+            }
         }
     }
 
@@ -112,13 +116,17 @@ public class HospitalManagementSystem {
         Doctor doctor = new Doctor(name, age, specialization);
         doctors.add(doctor);
         
-        System.out.println("Doctor added successfully!");
+        System.out.println("\n>>> Doctor added successfully! <<<");
     }
 
     private static void viewDoctors() {
-        System.out.println("\nDoctors in the system:");
-        for (Doctor doctor : doctors) {
-            System.out.println(doctor);
+        if (doctors.isEmpty()) {
+            System.out.println("\n>>> There are no doctors at the moment, please add doctor first. <<<");
+        } else {
+            System.out.println("\nDoctors in the system:");
+            for (Doctor doctor : doctors) {
+                System.out.println(doctor);
+            }
         }
         
     }
@@ -167,14 +175,18 @@ public class HospitalManagementSystem {
     
         Appointment appointment = new Appointment(patient, doctor, appointmentType);
         appointments.add(appointment);
-        System.out.println("Appointment made successfully!");
+        System.out.println("\n>>> Appointment made successfully! <<<");
     }
     
 
     private static void viewAppointments() {
-        System.out.println("\nAppointments in the system:");
-        for (Appointment appointment : appointments) {
-            System.out.println(appointment);
+        if (appointments.isEmpty()) {
+            System.out.println("\n>>> There are no appointments. <<<");
+        } else {
+            System.out.println("\nAppointments in the system:");
+            for (Appointment appointment : appointments) {
+                System.out.println(appointment);
+            }
         }
     }
 
