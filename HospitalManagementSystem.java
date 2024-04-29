@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
+import java.io.*;
 
 /*
 Hospital Management System
@@ -18,8 +19,13 @@ public class HospitalManagementSystem {
     private static ArrayList<Patient> patients = new ArrayList<>();
     private static ArrayList<Doctor> doctors = new ArrayList<>();
     private static ArrayList<Appointment> appointments = new ArrayList<>();
+    private static final String PATIENTS_FILE = "patients.txt";
+    private static final String DOCTORS_FILE = "doctors.txt";
+    private static final String APPOINTMENTS_FILE = "appointments.txt";
+
 
     public static void main(String[] args) {
+        loadData();
 
         System.out.println("\n>>> Data loaded successfully! <<<");
         Scanner scanner = new Scanner(System.in);
@@ -59,6 +65,7 @@ public class HospitalManagementSystem {
                     viewAppointments();
                     break;
                 case 7:
+                    saveData();
                     System.out.println("\n>>> Data saved successfully! <<<");
                     System.out.println("Exiting...");
                     System.exit(0);
@@ -211,5 +218,80 @@ public class HospitalManagementSystem {
             }
         }
     }
+     private static void loadData() {
+        loadPatients();
+        loadDoctors();
+        loadAppointments();
+    }
+
+    private static void loadPatients() {
+        try (Scanner scanner = new Scanner(new File(PATIENTS_FILE))) {
+            while (scanner.hasNextLine()) {
+                String[] data = scanner.nextLine().split(",");
+                patients.add(new Patient(data[0], Integer.parseInt(data[1]), data[2]));
+            }
+        } catch (FileNotFoundException | NumberFormatException e) {
+            System.err.println("Error loading patients data: " + e.getMessage());
+        }
+    }
+
+    private static void loadDoctors() {
+        try (Scanner scanner = new Scanner(new File(DOCTORS_FILE))) {
+            while (scanner.hasNextLine()) {
+                String[] data = scanner.nextLine().split(",");
+                patients.add(new Patient(data[0], Integer.parseInt(data[1]), data[2]));
+            }
+        } catch (FileNotFoundException | NumberFormatException e) {
+            System.err.println("Error loading patients data: " + e.getMessage());
+        }
+    }
+
+    private static void loadAppointments() {
+        try (Scanner scanner = new Scanner(new File(APPOINTMENTS_FILE))) {
+            while (scanner.hasNextLine()) {
+                String[] data = scanner.nextLine().split(",");
+                patients.add(new Patient(data[0], Integer.parseInt(data[1]), data[2]));
+            }
+        } catch (FileNotFoundException | NumberFormatException e) {
+            System.err.println("Error loading patients data: " + e.getMessage());
+        }
+    }
+
+    private static void saveData() {
+        savePatients();
+        saveDoctors();
+        saveAppointments();
+    }
+
+    private static void savePatients() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(PATIENTS_FILE))) {
+            for (Patient patient : patients) {
+                writer.println(patient.getName() + "," + patient.getAge() + "," + patient.getPatientID());
+            }
+        } catch (IOException e) {
+            System.err.println("Error saving patients data: " + e.getMessage());
+        }
+    }
+
+    private static void saveDoctors() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(DOCTORS_FILE))) {
+            for (Patient patient : patients) {
+                writer.println(patient.getName() + "," + patient.getAge() + "," + patient.getPatientID());
+            }
+        } catch (IOException e) {
+            System.err.println("Error saving patients data: " + e.getMessage());
+        }
+    }
+
+    private static void saveAppointments() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(APPOINTMENTS_FILE))) {
+            for (Patient patient : patients) {
+                writer.println(patient.getName() + "," + patient.getAge() + "," + patient.getPatientID());
+            }
+        } catch (IOException e) {
+            System.err.println("Error saving patients data: " + e.getMessage());
+        }
+    }
+
 
 }
