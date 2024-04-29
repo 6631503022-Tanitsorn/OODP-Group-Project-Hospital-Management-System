@@ -89,7 +89,7 @@ public class HospitalManagementSystem {
                 age = Integer.parseInt(ageInput);
                 validAge = true;
             } catch (NumberFormatException e) {
-                System.out.println("Invalid input! Age must be an integer.");
+                System.out.println(">>> Invalid input! Age must be an integer. <<<");
             }
         }
     
@@ -126,7 +126,7 @@ public class HospitalManagementSystem {
                 age = Integer.parseInt(ageInput);
                 validAge = true;
             } catch (NumberFormatException e) {
-                System.out.println("Invalid input! Age must be a valid integer.");
+                System.out.println(">>> Invalid input! Age must be an integer. <<<");
             }
         }
     
