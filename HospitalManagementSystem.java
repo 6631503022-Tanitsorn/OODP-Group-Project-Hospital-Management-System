@@ -79,17 +79,28 @@ public class HospitalManagementSystem {
         System.out.println("\nEnter patient details:");
         System.out.print("Name: ");
         String name = scanner.nextLine();
-        System.out.print("Age: ");
-        int age = scanner.nextInt();
-        scanner.nextLine(); 
+    
+        int age = 0;
+        boolean validAge = false;
+        while (!validAge) {
+            System.out.print("Age: ");
+            String ageInput = scanner.nextLine();
+            try {
+                age = Integer.parseInt(ageInput);
+                validAge = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input! Age must be an integer.");
+            }
+        }
+    
         System.out.print("Patient ID: ");
         String patientID = scanner.nextLine();
-
+    
         Patient patient = new Patient(name, age, patientID);
         patients.add(patient);
         System.out.println("\n>>> Patient added successfully! <<<");
     }
-
+    
     private static void viewPatients() {
         if (patients.isEmpty()) {
             System.out.println("\n>>> There are no patients at the moment, please add patients first. <<<");
@@ -105,17 +116,29 @@ public class HospitalManagementSystem {
         System.out.println("\nEnter doctor details:");
         System.out.print("Name: ");
         String name = scanner.nextLine();
-        System.out.print("Age: ");
-        int age = scanner.nextInt();
-        scanner.nextLine(); 
+    
+        int age = 0;
+        boolean validAge = false;
+        while (!validAge) {
+            System.out.print("Age: ");
+            String ageInput = scanner.nextLine();
+            try {
+                age = Integer.parseInt(ageInput);
+                validAge = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input! Age must be a valid integer.");
+            }
+        }
+    
         System.out.print("Specialization: ");
         String specialization = scanner.nextLine();
-
+    
         Doctor doctor = new Doctor(name, age, specialization);
         doctors.add(doctor);
         
         System.out.println("\n>>> Doctor added successfully! <<<");
     }
+    
 
     private static void viewDoctors() {
         if (doctors.isEmpty()) {
