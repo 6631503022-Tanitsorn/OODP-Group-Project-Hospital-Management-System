@@ -21,7 +21,7 @@ public class HospitalManagementSystem {
 
     public static void main(String[] args) {
 
-        System.out.println(">>> Data loaded successfully! <<<");
+        System.out.println("\n>>> Data loaded successfully! <<<");
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
