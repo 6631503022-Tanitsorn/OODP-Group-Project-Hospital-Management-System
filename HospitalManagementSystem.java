@@ -153,10 +153,10 @@ public class HospitalManagementSystem {
     }
 
     private static void makeAppointment(Scanner scanner) {
-        System.out.println("\n*** Make Appointment ***");
+        System.out.println("\n***** Make Appointment *****");
         
         if (patients.isEmpty()) {
-            System.out.println("No patients available. Please add patients first.");
+            System.out.println(">>> No patients available. Please add patients first. <<<");
             return;
         }
         
@@ -178,7 +178,7 @@ public class HospitalManagementSystem {
             return;
         }
     
-        System.out.println("Select Doctor:");
+        System.out.println("\nSelect Doctor:");
         for (int i = 0; i < doctors.size(); i++) {
             System.out.println((i + 1) + ". " + doctors.get(i));
         }
@@ -191,7 +191,7 @@ public class HospitalManagementSystem {
         }
         Doctor doctor = doctors.get(doctorIndex - 1);
     
-        System.out.print("Enter appointment type: ");
+        System.out.print("\nEnter appointment type: ");
         String appointmentType = scanner.nextLine();
     
         Appointment appointment = new Appointment(patient, doctor, appointmentType);
