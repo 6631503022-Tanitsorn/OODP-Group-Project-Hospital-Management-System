@@ -9,6 +9,18 @@ class Appointment {
         this.appointmentType = appointmentType;   
     }
 
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public String getAppointmentType() {
+        return appointmentType;
+    }
+
     /* Override, the ability of a subclass to provide a specific implementation of a method
     that is already defined in its superclass */
     @Override

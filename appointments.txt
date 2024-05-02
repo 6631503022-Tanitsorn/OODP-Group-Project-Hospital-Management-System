@@ -1,3 +1,1 @@
-mook,15,55
-nnd,44,44
-kk,44,66
+Patient: hh, Age: 22, ID: 66,Doctor: mm, Age: 22, Specialization: ccccc,rrr

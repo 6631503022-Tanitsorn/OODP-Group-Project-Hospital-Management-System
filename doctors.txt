@@ -1,3 +1,1 @@
-mook,15,55
-nnd,44,44
-kk,44,66
+mm,22,Doctor: mm, Age: 22, Specialization: ccccc

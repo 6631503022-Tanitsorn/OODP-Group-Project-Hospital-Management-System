@@ -285,10 +285,10 @@ public class HospitalManagementSystem {
     }
 
     private static void saveAppointments() {
-        try (Bu writer = new PrintWriter(new FileWriter(APPOINTMENTS_FILE))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(APPOINTMENTS_FILE))) {
+            
             for (Appointment appointment : appointments) {
-                writer.println(appointment.getPatient().getName() + "," + appointment.getPatient().getAge() + "," + appointment.getPatient().getPatientID() + "," +
-                               appointment.getAppointmentType());
+                writer.println(appointment.getPatient() + "," + appointment.getDoctor() + "," + appointment.getAppointmentType());
             }
         } catch (IOException e) {
             System.err.println("Error saving appointments data: " + e.getMessage());
