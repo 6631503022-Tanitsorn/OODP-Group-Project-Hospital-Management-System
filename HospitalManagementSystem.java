@@ -15,6 +15,7 @@ Main classes:
 - Appointment: Represents an appointment between a patient and a doctor.
 */
 
+
 public class HospitalManagementSystem {
     private static ArrayList<Patient> patients = new ArrayList<>();
     private static ArrayList<Doctor> doctors = new ArrayList<>();
@@ -24,7 +25,7 @@ public class HospitalManagementSystem {
     private static final String APPOINTMENTS_FILE = "appointments.txt";
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {;
         loadData();
 
         System.out.println("\n>>> Data loaded successfully! <<<");
@@ -239,7 +240,7 @@ public class HospitalManagementSystem {
         try (Scanner scanner = new Scanner(new File(DOCTORS_FILE))) {
             while (scanner.hasNextLine()) {
                 String[] data = scanner.nextLine().split(",");
-                patients.add(new Patient(data[0], Integer.parseInt(data[1]), data[2]));
+                doctors.add(new Doctor(data[0], Integer.parseInt(data[0]), data[0]));
             }
         } catch (FileNotFoundException | NumberFormatException e) {
             System.err.println("Error loading patients data: " + e.getMessage());
@@ -250,7 +251,7 @@ public class HospitalManagementSystem {
         try (Scanner scanner = new Scanner(new File(APPOINTMENTS_FILE))) {
             while (scanner.hasNextLine()) {
                 String[] data = scanner.nextLine().split(",");
-                patients.add(new Patient(data[0], Integer.parseInt(data[1]), data[2]));
+                patients.add(new Patient(data[0], Integer.parseInt(data[0]), data[0]));
             }
         } catch (FileNotFoundException | NumberFormatException e) {
             System.err.println("Error loading patients data: " + e.getMessage());
@@ -275,23 +276,25 @@ public class HospitalManagementSystem {
 
     private static void saveDoctors() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(DOCTORS_FILE))) {
-            for (Patient patient : patients) {
-                writer.println(patient.getName() + "," + patient.getAge() + "," + patient.getPatientID());
+            for (Doctor doctor : doctors) {
+                writer.println(doctor.getName() + "," + doctor.getAge() + "," + doctor.toString());
             }
         } catch (IOException e) {
-            System.err.println("Error saving patients data: " + e.getMessage());
+            System.err.println("Error saving doctors data: " + e.getMessage());
         }
     }
 
     private static void saveAppointments() {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(APPOINTMENTS_FILE))) {
-            for (Patient patient : patients) {
-                writer.println(patient.getName() + "," + patient.getAge() + "," + patient.getPatientID());
+        try (Bu writer = new PrintWriter(new FileWriter(APPOINTMENTS_FILE))) {
+            for (Appointment appointment : appointments) {
+                writer.println(appointment.getPatient().getName() + "," + appointment.getPatient().getAge() + "," + appointment.getPatient().getPatientID() + "," +
+                               appointment.getAppointmentType());
             }
         } catch (IOException e) {
-            System.err.println("Error saving patients data: " + e.getMessage());
+            System.err.println("Error saving appointments data: " + e.getMessage());
         }
     }
+    
 
 
 }
